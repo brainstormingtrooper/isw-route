@@ -114,7 +114,7 @@ Router with app-route like API, wrapped in an iron-selectable element that binds
 						
 						if(this.items[match.index].import){
 
-							var resolvedPageUrl = this.resolveUrl(this.items[match.index].import);
+							var resolvedPageUrl = this.resolveUrl('../../' + this.items[match.index].import);
 							Polymer.importHref(
 							    resolvedPageUrl,
 							    null,
