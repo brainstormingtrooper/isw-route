@@ -111,8 +111,23 @@ Router with app-route like API, wrapped in an iron-selectable element that binds
 					}
 
 					if( match ) {
+						
+						if(this.items[match.index].import){
+
+							var resolvedPageUrl = this.resolveUrl(this.items[match.index].import);
+							Polymer.importHref(
+							    resolvedPageUrl,
+							    null,
+							    ()=>{
+								console.log("Component not found to be imported")
+							    },
+							    true);
+
+						}
+						
 						this.set( 'data', match.data );
 						this.set( 'selected', this._indexToValue( match.index ) );
+						
 					} else {
 						this.select( this.fallbackSelection );
 					}
