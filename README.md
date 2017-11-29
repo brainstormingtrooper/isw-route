@@ -6,10 +6,10 @@ Router with app-route like API, wrapped in an iron-selectable element that binds
 <app-location route="{{route}}"></app-location>
 
 <isw-route-selector route="[[route]]" attr-for-selected="route" selected="{{selectedRoute}}" data="{{data}}">
-  <isw-route route="my-view1" pattern="/"></isw-route>
-  <isw-route route="my-view2" pattern="/clientes"></isw-route>
-  <isw-route route="my-view3" pattern="/clientes/:clienteID"></isw-route>
-  <isw-route route="notfound" pattern="/notfound"></isw-route>
+  <isw-route route="a" pattern="/route-a"></isw-route>
+  <isw-route route="b" pattern="/route-a/route-b"></isw-route>
+  <isw-route route="c" pattern="/route-c/:somedata"></isw-route>
+  <isw-route route="d" pattern="/route-c/route-d"></isw-route>
 </isw-route-selector>
 
 
@@ -36,10 +36,10 @@ With the isw-route you are also able to lazy-import, making the import of the fi
 <!-- To import the component you need to enter the full path of the component from the project root folder -->
 
 <isw-route-selector route="[[route]]" attr-for-selected="route" selected="{{selectedRoute}}" data="{{data}}">
-  <isw-route import="./src/my-view1.html" route="my-view1" pattern="/"></isw-route>
-  <isw-route import="./src/my-view2.html" route="my-view2" pattern="/clientes"></isw-route>
-  <isw-route import="./src/my-view3.html" route="my-view3" pattern="/clientes/:clienteID"></isw-route>
-  <isw-route import="./src//my-view404.html" route="notfound" pattern="/notfound"></isw-route>
+  <isw-route import="./src/my-view1.html" route="a" pattern="/route-a"></isw-route>
+  <isw-route import="./src/my-view2.html" route="b" pattern="/route-a/route-b"></isw-route>
+  <isw-route import="./src/my-view3.html" route="c" pattern="/route-c/:somedata"></isw-route>
+  <isw-route import="./src//my-view404.html" route="d" pattern="/route-c/route-d"></isw-route>
 </isw-route-selector>
 
 
