@@ -33,11 +33,13 @@ With the isw-route you are also able to lazy-import, making the import of the fi
 
 <app-location route="{{route}}"></app-location>
 
+<!-- To import the component you need to enter the full path of the component from the project root folder -->
+
 <isw-route-selector route="[[route]]" attr-for-selected="route" selected="{{selectedRoute}}" data="{{data}}">
-  <isw-route import="./my-view1.html" route="my-view1" pattern="/"></isw-route>
-  <isw-route import="./my-view2.html" route="my-view2" pattern="/clientes"></isw-route>
-  <isw-route import="./my-view3.html" route="my-view3" pattern="/clientes/:clienteID"></isw-route>
-  <isw-route import="./my-view404.html" route="notfound" pattern="/notfound"></isw-route>
+  <isw-route import="./src/my-view1.html" route="my-view1" pattern="/"></isw-route>
+  <isw-route import="./src/my-view2.html" route="my-view2" pattern="/clientes"></isw-route>
+  <isw-route import="./src/my-view3.html" route="my-view3" pattern="/clientes/:clienteID"></isw-route>
+  <isw-route import="./src//my-view404.html" route="notfound" pattern="/notfound"></isw-route>
 </isw-route-selector>
 
 
