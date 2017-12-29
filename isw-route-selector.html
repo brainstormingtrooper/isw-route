@@ -124,6 +124,13 @@ Router with app-route like API, wrapped in an iron-selectable element that binds
 							    true);
 
 						}
+
+						//solução provisoria
+						let page = this;
+						let novoElemento = page.nextElementSibling.children[match.index].cloneNode(true)
+						page.nextElementSibling.children[match.index].replaceWith(novoElemento)
+
+
 						
 						this.set( 'data', match.data );
 						this.set( 'selected', this._indexToValue( match.index ) );
