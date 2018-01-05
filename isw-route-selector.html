@@ -111,7 +111,7 @@ Router with app-route like API, wrapped in an iron-selectable element that binds
 					}
 
 					if( match ) {
-						
+
 						if(this.items[match.index].import){
 
 							var resolvedPageUrl = this.resolveUrl('../../' + this.items[match.index].import);
@@ -128,13 +128,36 @@ Router with app-route like API, wrapped in an iron-selectable element that binds
 						//solução provisoria
 						let page = this;
 						let novoElemento = page.nextElementSibling.children[match.index].cloneNode(true)
+
+					page.nextElementSibling.children[match.index].replaceWith = function(Ele) {
+						  'use-strict'; // For safari, and IE > 10
+						  var parent = this.parentNode,
+						      i = arguments.length,
+						      firstIsNode = +(parent && typeof Ele === 'object');
+						  if (!parent) return;
+
+						  while (i-- > firstIsNode){
+						    if (parent && typeof arguments[i] !== 'object'){
+						      arguments[i] = document.createTextNode(arguments[i]);
+						    } if (!parent && arguments[i].parentNode){
+						      arguments[i].parentNode.removeChild(arguments[i]);
+						      continue;
+						    }
+						    parent.insertBefore(this.previousSibling, arguments[i]);
+						  }
+						  if (firstIsNode) parent.replaceChild(Ele, this);
+						}
+
+
+
+
 						page.nextElementSibling.children[match.index].replaceWith(novoElemento)
 
 
-						
+
 						this.set( 'data', match.data );
 						this.set( 'selected', this._indexToValue( match.index ) );
-						
+
 					} else {
 						this.select( this.fallbackSelection );
 					}
